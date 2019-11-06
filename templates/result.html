@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<title>Weather Api</title>
+<div class="body">
+    <div class="body">
+    {% for d in data %}
+    {% set my_string = "static/img/" + d['weather'][0]['icon']+ ".svg" %}
+    <h1><img src="{{ my_string }}" class="svg" fill="white" height="100" vertical-align="middle" width="100"></h1>
+    <h1 class="body"> Weather </h1>
+    <h1 class="body">{{ d['name'] }}, {{ d['sys']['country'] }}</h1>
+    <h1>Temperature: {{ d['main']['temp']|round|int}} °C</h1>
+    <h1>Description: {{ d['weather'][0]['description'] }}</h1>
+    <h1>Pressure: {{ d['main']['pressure'] }} </h1>
+    {% endfor %}
+    </div>
+</div>
+
+
+
+
+
